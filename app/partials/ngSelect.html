@@ -1,0 +1,76 @@
+<div class="row form">
+    <h3>Welcome, {{user}}!</h3>
+</div>
+
+<div class="row form">
+    <div class="col-sm-8"><input type="button" value="New Form" class="btn-lg-sa btn-saatchi btn-block" ng-click="new()"
+                                 ng-show="shownav"></div>
+    <div class="col-sm-4"><input ng-model="query" ng-show="shownav" class="form-saatchi" placeholder="Search"></div>
+</div>
+
+
+<div class="row form">
+    <table class="table table-striped">
+        <th>Event Name</th>
+        <th>TDA</th>
+        <th>End Date</th>
+        <th>E</th>
+        <th>H</th>
+        <th>L</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <tr ng-repeat="form in forms | filter:query" class="check-element sample-show-hide">
+
+            <td ng-click="click(form.form_id)">{{form.event_name}}</td>
+            <td>{{tdas[form.event_tda].name}}</td>
+            <td>{{form.event_end}}</td>
+            <td>{{form.ent_count}}</td>
+            <td>{{form.hr_count}}</td>
+            <td>{{form.lead_count}}</td>
+            <td><input type="button" value="View" class="btn btn-block" ng-click="click(form.form_id)"></td>
+            <td><input type="button" value="Archive" class="btn btn-block" ng-click="archive(form.form_id)"
+                       ng-show="shownav"></td>
+            <td><input type="button" value="Upload" class="btn btn-block" ng-show="shownav"
+                       ng-click="upload(aform.form_id)"></td>
+
+        </tr>
+
+
+    </table>
+</div>
+
+<div class="row form" ng-show="shownav">
+    <h3>Archive</h3>
+</div>
+
+
+<div class="row form" ng-show="shownav">
+    <table class="table table-striped">
+        <th>Event Name</th>
+        <th>TDA</th>
+        <th>End Date</th>
+        <th>E</th>
+        <th>H</th>
+        <th>L</th>
+        <th></th>
+        <th></th>
+
+        <tr ng-repeat="aform in aforms | filter:query" class="check-element sample-show-hide">
+            <td ng-click="click(aform.form_id)">{{aform.event_name}}</td>
+            <td>{{tdas[aform.event_tda].name}}</td>
+            <td>{{aform.event_end}}</td>
+            <td>{{aform.ent_count}}</td>
+            <td>{{aform.hr_count}}</td>
+            <td>{{aform.lead_count}}</td>
+            <td><input type="button" value="View" class="btn btn-block" ng-click="click(aform.form_id)"></td>
+            <td><input type="button" value="DELETE" class="btn btn-block" ng-show="admin"
+                       ng-click="delete(aform.form_id)"></td>
+
+
+        </tr>
+
+
+    </table>
+</div>
+

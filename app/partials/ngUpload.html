@@ -1,0 +1,13 @@
+<!-- Drag and drop file upload -->
+<script>$.event.props.push( "dataTransfer" );</script>
+        <center><input type="button" class="btn" value="GENERATE" ng-click="uploadFile(uploadedFile)"/>
+            <a ng-href="../api/{{download_link}}"/>Generated File</a>
+<div class="dropzone" file-dropzone file="uploadedFile" file-name="uploadedFileName">
+
+<span>Place File Here</span>
+</div>
+       <br>
+<img ng-src="{{ uploadedFile }}" width="400" height="400">
+<br>
+<input type="button" class="btn" value="UPLOAD" ng-click="uploadFile(uploadedFile)"/>
+        </center>

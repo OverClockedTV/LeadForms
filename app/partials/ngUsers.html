@@ -1,0 +1,32 @@
+<div class="row form">
+    <h3>User Admin for {{user}}</h3>
+</div>
+<div class="row form">
+    <div class="col-sm-8"><input type="button" value="New User" class="btn-lg-sa btn-saatchi btn-block" ng-click="new()"
+                                 ng-show="shownav"></div>
+    <div class="col-sm-4"><input ng-model="query" ng-show="shownav" class="form-saatchi" placeholder="Search"></div>
+
+</div>
+
+<div>
+    <table class="table table-striped">
+        <tr ng-repeat-start="form in forms | filter:query" ng-init="form.show = false">
+            <td>
+                {{form.user_name}}
+            </td>
+            <td>{{groups[form.user_group].name}}</td>
+            <td>
+                {{tdas[form.user_tda].name}}
+            </td>
+            <td><input type="button" value="Change Password" ng-click="form.show = !form.show" class="btn"></td>
+            <td><input type="button" value="DELETE" ng-click="delete(form.user_id)" class="btn"></td>
+        </tr>
+        <tr ng-repeat-end ng-show="form.show" ng-init="form.np = null;">
+            <td><input type="password" class="form-saatchi" placeholder="New Password" ng-model="form.np"></td>
+            <td><input type="button" value="Change" ng-click="change(form.user_id, form.np);"
+                       class="btn btn-lg-sa btn-block"></td>
+
+        </tr>
+    </table>
+</div>
+

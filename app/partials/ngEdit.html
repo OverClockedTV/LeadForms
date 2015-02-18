@@ -1,0 +1,172 @@
+<div class="">
+    <div class="row form" ng-show="!event.event_name">
+        <center><h2>Create New Form</h2></center>
+    </div>
+
+    <div>
+
+        <div class="row form" ng-show="event.event_name">
+            <center><h2 style="color:red;">{{event.event_name}}</h2></center>
+        </div>
+        <form name="form1">
+            <div class="row form">
+                <div class="col-sm-5">
+                    <h4>Event Name:</h4>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-saatchi form" ng-model="event.event_name" required/>
+                </div>
+            </div>
+            <div class="row form">
+                <div class="col-sm-5">
+                    <h4>Custom Message</h4>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-saatchi form" ng-model="msg"/>
+                </div>
+            </div>
+            <div class="row form">
+                <div class="col-sm-5">
+                    <h4>Event Start Date:</h4>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-saatchi" ng-model="event.event_start" bs-datepicker
+                           placeholder="Start Date" data-autoclose="1"/>
+                </div>
+            </div>
+
+            <div class="row form">
+                <div class="col-sm-5">
+                    <h4>Event End Date</h4>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-saatchi" ng-model="event.event_end"
+                           data-min-date="{{event.event_start}}"
+                           bs-datepicker placeholder="End Date" data-autoclose="1"/>
+                </div>
+            </div>
+            <div class="row form">
+                <div class="col-sm-5">
+                    <h4>Campaign Code:</h4>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-saatchi" ng-model="event.event_cc" required/>
+                </div>
+            </div>
+            <div class="row form">
+                <div class="col-sm-5">
+                    <h4>Location Code:</h4>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" class="form-saatchi" ng-model="event.event_loc" required/>
+                </div>
+            </div>
+
+            <div class="row form" ng-show="admin">
+                <div class="col-sm-2">
+                    <h4>TDA</h4>
+
+                </div>
+                <div class=" col-sm-10">
+                    <select ng-model="event.tda" ng-options="t.name for t in tdas " class="form-saatchi form"
+                            ng-required="req"></select>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <h2>OPTIONAL FIELDS</h2>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>Address</h4>
+                </div>
+                <div class="col-sm-6">
+                    <input type="checkbox" class="form-saatchi" ng-model="address"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>City</h4>
+                </div>
+                <div class="col-sm-6">
+                    <input type="checkbox" class="form-saatchi" ng-model="city"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>State</h4>
+                </div>
+                <div class="col-sm-6">
+                    <input type="checkbox" class="form-saatchi" ng-model="state"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>Phone</h4>
+                </div>
+                <div class="col-sm-6">
+                    <input type="checkbox" class="form-saatchi" ng-model="phone"/>
+                </div>
+            </div>
+
+            <div class="row form">
+                <div class="col-sm-6">
+                    <h4>Age</h4>
+                </div>
+                <div class="col-sm-6">
+                    <input type="checkbox" class="form-saatchi" ng-model="age"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>Purchase Timeframe</h4>
+                </div>
+                <div class="col-sm-6">
+                    <input type="checkbox" class="form-saatchi" ng-model="pt"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>Model 1</h4>
+                </div>
+                <div class="col-sm-6">
+                    <input type="checkbox" class="form-saatchi" ng-model="m1"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>Model 2</h4>
+                </div>
+                <div class="col-sm-6">
+                    <input type="checkbox" class="form-saatchi" ng-model="m2"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>Model 3</h4>
+                </div>
+                <div class="col-sm-6">
+                    <input type="checkbox" class="form-saatchi" ng-model="m3"/>
+                </div>
+            </div>
+
+
+            <div class="row form">
+                <div class="col-sm-12">
+                    <input type="button" value="Save Form" class="btn btn-saatchi btn-block btn-lg-sa"
+                           ng-disabled="!form1.$valid" ng-click="saveForm()"/>
+                </div>
+            </div>
+        </form>
+
+
+        <br>
+        <br>
+        {{ debug.result }}
+
+        <br>
+
+    </div>
+</div>
